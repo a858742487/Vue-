@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" type="" href="myCss/login.css">
+    <style>
+        #app {
+            width: 1200px !important;
+            margin: 0 auto;
+            height: 900px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <el-row :gutter="20">
+            <el-col :span="3">
+                <div class="grid-content bg-purple">
+                    <div class="headImg">
+                        <img src="myCss/touxiang.png" alt="">
+                    </div>
+                </div>
+            </el-col>
+            <el-col :span="5">
+                <div class="grid-content bg-purple mainTitleStyle">
+                    <span>刘国富（15546377263）</span>
+                </div>
+            </el-col>
+            <el-col :span="5">
+                <div class="grid-content bg-purple  mainTitleColor">
+                    <span>汤圆国富有限公司</span>
+                </div>
+            </el-col>
+            <el-col :span="5">
+                <div class="grid-content bg-purple  mainTitleColor">
+                    <span>l-ove34@qq.com</span>
+                </div>
+            </el-col>
+            <el-col :span="5">
+                <div class="grid-content bg-purple  mainTitleColor">
+                    <span>2017-11-30 加入了迈科技</span>
+                </div>
+            </el-col>
+        </el-row>
+        <!-- 头部结束 -->
+
+        <!-- 开始主体部分 左右布局 -->
+        <el-container>
+            <el-aside width="200px">
+                <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :default-openeds="['1', '2', '3', '4']">
+                    <el-menu-item index="0" class=" is-active">
+                        <i class="el-icon-menu"></i>
+                        <span slot="title">我的消息</span>
+                    </el-menu-item>
+                    <el-submenu index="1">
+                        <template slot="title">
+                            <i class="el-icon-location"></i>
+                            <span>咨询</span>
+                        </template>
+                        <el-menu-item-group>
+                            <el-menu-item index="1-1">咨询的技术</el-menu-item>
+                            <el-menu-item index="1-2">咨询的需求</el-menu-item>
+                        </el-menu-item-group>
+                    </el-submenu>
+                    <el-submenu index="2">
+                        <template slot="title">
+                            <i class="el-icon-setting"></i>
+                            <span slot="title">发布</span>
+                        </template>
+                        <el-menu-item-group>
+                            <el-menu-item index="2-1">发布的技术</el-menu-item>
+                            <el-menu-item index="2-2">发布的需求</el-menu-item>
+                        </el-menu-item-group>
+                    </el-submenu>
+                    <el-submenu index="3">
+                        <template slot="title">
+                            <i class="el-icon-setting"></i>
+                            <span slot="title">活动/政策</span>
+                        </template>
+                        <el-menu-item-group>
+                            <el-menu-item index="3-1">报名的活动</el-menu-item>
+                            <el-menu-item index="3-2">收藏的文章</el-menu-item>
+                        </el-menu-item-group>
+                    </el-submenu>
+                </el-menu>
+            </el-aside>
+            <el-main>
+                <router-view></router-view>
+                <el-container>
+                    <el-header class="rightHead">
+                        <i class="el-icon-location"></i>
+                        <span>我的消息</span>
+                    </el-header>
+                    <el-main>
+                        <div class="rightMain">
+                            <el-row class="rightMain">
+                                <el-col :span="4" class="MainImg ">
+                                    <img src="myCss/touxiang.png" alt="">
+                                </el-col>
+                                <!-- 使用 router-link 组件来导航. -->
+                                <!-- 通过传入 `to` 属性指定链接. -->
+                                <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+                                <el-col :span="20" class="rightTextline">很抱歉，您的需求
+                                    <router-link to="/foo">机械键盘键帽制作</router-link> 不符合平台的发布要求。如收有疑问请致电400-000-1786联系工作人员修改或重新发布。</el-col>
+                            </el-row>
+                        </div>
+                    </el-main>
+                </el-container>
+            </el-main>
+        </el-container>
+
+    </div>
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<!-- 引入路由组件 -->
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<script>
+    // 0. 如果使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)
+
+    // 1. 定义（路由）组件。
+    // 可以从其他文件 import 进来
+    const Foo = {
+        template: '<div>这里是路由出来的文字</div>'
+    }
+
+    // 2. 定义路由
+    // 每个路由应该映射一个组件。 其中"component" 可以是
+    // 通过 Vue.extend() 创建的组件构造器，
+    // 或者，只是一个组件配置对象。
+    // 我们晚点再讨论嵌套路由。
+    const routes = [{
+        path: '/foo',
+        component: Foo
+    }]
+
+    // 3. 创建 router 实例，然后传 `routes` 配置
+    // 你还可以传别的配置参数, 不过先这么简单着吧。
+    const router = new VueRouter({
+        routes // （缩写）相当于 routes: routes
+    })
+
+    // 4. 创建和挂载根实例。
+    // 记得要通过 router 配置参数注入路由，
+    // 从而让整个应用都有路由功能
+
+    new Vue({
+
+        el: '#app',
+        data: function () {
+            return {
+                visible: false
+            }
+        },
+        methods: {
+            handleOpen(index) {
+                console.log("打开子菜单" + key);
+            },
+            handleClose(key) {
+                console.log("关闭子菜单" + key);
+            }
+        },
+        router
+    }).$mount('#app')
+</script>
+
+</html>
