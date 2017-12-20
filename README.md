@@ -58,6 +58,6 @@
             }  
         },  
         router  
-    }).$mount('#app')  
+    }).$mount('#app')   
 </script>    
   
