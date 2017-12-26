@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 400px;
+            margin: 10% auto;
+        }
+
+        .el-form-item__label {
+            font-size: 18px;
+        }
+        .Logintitle {text-align: center;}
+        .Logintitle i {padding-right: 5px; padding-bottom: 20px;}
+        .btn-login {width: 50%; margin-left:25%;}
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="box">
+            <h2 class="Logintitle">
+                <i class="el-icon-share"></i>Login ...</h2>
+            <el-form :model="form" label-width="120px" ref="form" :label-position="labelPosition">
+                <el-form-item label="请输入账号" :rules="[{ required: true, message: '账号不能为空'}]" prop="name">
+                    <el-input v-model="form.name"  placeholder="用户名"></el-input>
+                </el-form-item>
+                <el-form-item label="请输入密码" :rules="[{ required: true, message: '密码不能为空'}]" prop="wordpress">
+                    <el-input v-model="form.wordpress" placeholder="密码"></el-input>
+                </el-form-item>
+            </el-form>
+            <el-button @click="submit" :loading="isLoading" icon="el-icon-upload" type="primary" class="btn-login">登陆</el-button>
+        </div>
+    </div>
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                form: {
+                    name: "",
+                    wordpress : ""
+                },
+                labelPosition: "right",
+                isLoading : false
+            }
+        },
+        methods: {
+            submit : function() {
+                this.isLoading = true;
+                setTimeout(function(){
+                     this.isLoading = false ; 
+                     this.$alert('登录起来吧!',{type: 'success'});
+                    //  这里面的状态可以是type : 'error'
+                }.bind(this),1000);
+            }
+        }
+    })
+</script>
+
+</html>
