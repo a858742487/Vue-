@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- <link rel="stylesheet" type="" href="myCss/login.css"> -->
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <el-breadcrumb separator="/">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+            <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+        </el-breadcrumb>
+        <el-container>
+            <el-header>您的需求机械键盘键帽制作未通过审核</el-header>
+            <el-main>很抱歉，您的需求机械键盘键帽制作不符合平台的发布要求。如收有疑问请致电400-000-1786联系工作人员修改或重新发布。</el-main>
+        </el-container>
+    </div>
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+
+<script>
+    
+
+    new Vue({
+
+        el: '#app',
+        data: function () {
+            return {
+              
+            }
+        },
+        methods: {
+          
+        }
+    
+    })
+</script>
+
+</html>
