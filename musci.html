@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery歌词同步MP3播放器代码 </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="dist/APlayer.min.css">
+<style>
+body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;}.container{max-width:32rem;margin-left:auto;margin-right:auto;}h1{font-size:54px;color:#333;margin:30px 0 10px;}h2{font-size:22px;color:#555;}h3{font-size:24px;color:#555;}hr{display:block;width:7rem;height:1px;margin:2.5rem 0;background-color:#eee;border:0;}a{color:#08c;text-decoration:none;}p{font-size:18px;}
+</style>
+</head>
+<body>
+<div class="container">
+  <div id="player1" class="aplayer"></div>
+</div>
+<script src="dist/APlayer.min.js"></script>
+<script>
+    var ap1 = new APlayer({
+        element: document.getElementById('player1'),
+        narrow: false,
+        autoplay: false,
+        showlrc: false,
+        music: {
+            title: 'Sugar',
+            author: 'Maroon 5',
+            url: 'music/Sugar.mp3',
+            pic: 'music/Maroon5.jpg'
+        }
+    });
+    ap1.init();
+
+    var ap2 = new APlayer({
+        element: document.getElementById('player2'),
+        narrow: true,
+        autoplay: false,
+        showlrc: false,
+        music: {
+            title: 'Sugar',
+            author: 'Maroon 5',
+            url: 'music/Sugar.mp3',
+            pic: 'music/Maroon5.jpg'
+        }
+    });
+    ap2.init();
+
+    var ap3 = new APlayer({
+        element: document.getElementById('player3'),
+        narrow: false,
+        autoplay: false,
+        showlrc: true,
+        music: {
+            title: '平凡之路',
+            author: '朴树',
+            url: 'music/Sugar.mp3',
+            pic: 'music/Maroon5.jpg'
+        }
+    });
+    ap3.init();
+</script>
+
+
+</body>
+</html>
