@@ -5,7 +5,7 @@
   
     <view  data-url="{{item.url}}" bindtap = "onItemClick">
        <image class= "image" mode="aspectFill" src="{{item.url}}"/>
-       <view class="title">{{item.title}}</view>
+       <view class="title">{{item.title}}</view>     
     </view>
 
   </view>
